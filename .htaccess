@@ -1,0 +1,22 @@
+RewriteEngine on
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d  
+
+# RewriteRule . index.php?q=%{REQUEST_URI}
+
+
+## recursively search parent dir
+# if index.php is not found then
+# forward to the parent directory of current URI
+
+
+
+
+# RewriteCond %{DOCUMENT_ROOT}/$1$2/index.php !-f
+# RewriteRule ^(.*?)([^/]+)/[^/]+/?$ /$1$2/?q=%{REQUEST_URI} [L]
+
+# # if current index.php is found in parent dir then load it
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{DOCUMENT_ROOT}/$1index.php -f
+# RewriteRule ^(.*?)[^/]+/?$ /$1index.php?q=%{REQUEST_URI} [L]
